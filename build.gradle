@@ -23,9 +23,11 @@ subprojects {
         options.release = 21
     }
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
+    plugins.withId('java') {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(21)
+            }
         }
     }
 }
