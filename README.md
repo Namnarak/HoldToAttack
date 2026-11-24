@@ -1,52 +1,40 @@
 # Hold To Attack
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Minecraft-26.2-brightgreen" alt="Minecraft Version">
-  <img src="https://img.shields.io/badge/Loader-Fabric%20%7C%20NeoForge-blue" alt="Mod Loader">
-  <img src="https://img.shields.io/badge/License-CC0-yellow" alt="License">
-</div>
+**Hold To Attack** is a client-side Fabric mod for Minecraft 1.21.11. Hold the attack button and the mod automatically attacks whenever the attack cooldown is fully charged.
 
-**Hold To Attack** is a simple, highly customizable Quality of Life (QoL) mod for Minecraft that allows players to continuously attack simply by holding down the attack button (default: Left Click). No more spam clicking to deal maximum damage!
+## Features
 
-## ✨ Features
+- Automatically attacks when the attack cooldown reaches 100%.
+- Optional target requirement to prevent swinging at empty space.
+- Enable/disable the feature and configure target requirements through Cloth Config.
+- Optional Mod Menu integration for quick access to settings.
 
-- **Auto-Attack:** Automatically attacks the moment your attack cooldown reaches 100% while holding the attack key.
-- **Require Target (Configurable):** By default, the mod only attacks if you are actually looking at a valid entity. If you look at thin air, you won't swing. This prevents accidental swings when fighting!
-- **Global Toggle:** You can quickly enable or disable the entire mod from the configuration menu—perfect for switching between PvE and PvP sessions without having to restart the game.
-- **Cross-Platform:** Supports both **Fabric** and **NeoForge** loaders seamlessly using a Native Multi-Loader structure.
+## Compatibility
 
-## ⚙️ Configuration
+| Component | Version |
+| --- | --- |
+| Minecraft | 1.21.11 |
+| Mod loader | Fabric |
+| Java | 21 or newer |
+| Fabric API | 0.141.1+1.21.11 |
+| Cloth Config | 21.11.153+fabric |
+| Mod Menu | 17.0.1 (optional) |
 
-The mod features a fully integrated configuration screen powered by **Cloth Config API**.
+## Build
 
-- **Fabric:** Accessible via [ModMenu](https://modrinth.com/mod/modmenu).
-- **NeoForge:** Accessible directly through the built-in NeoForge mod list settings.
-
-### Available Settings
-| Setting | Description | Default |
-| :--- | :--- | :--- |
-| **Enabled** | Master switch for the mod. Turn this off to completely disable the auto-attack feature. | `True` |
-| **Require Target** | If enabled, the mod will only auto-attack when you are aiming directly at a valid entity (mob/player). | `True` |
-
-## 🛠️ For Developers / Building from Source
-
-This project uses a **Native Multi-Loader** architecture to support both Fabric and NeoForge using their respective official toolchains, without relying on third-party compatibility layers like Architectury.
-
-### Project Structure
-- `common/` - Contains the core logic, mixins, and configuration models.
-- `fabric/` - Fabric-specific entrypoints and ModMenu integrations.
-- `neoforge/` - NeoForge-specific entrypoints and UI registrations.
-
-### How to Build
-To build both the Fabric and NeoForge versions of the mod, run the following command in your terminal:
+Install JDK 21, then run:
 
 ```bash
-./gradlew build
+./gradlew clean build
 ```
 
-This will automatically generate the jars in the following directories:
-- **Fabric:** `fabric/build/libs/HoldToAttack-fabric-1.1.1.jar`
-- **NeoForge:** `neoforge/build/libs/HoldToAttack-neoforge-1.1.1.jar`
+The distributable Fabric mod JAR is generated under `fabric/build/libs/`. The development JAR is marked with `-dev`; use the remapped JAR for your game.
 
----
-*Created with ❤️ for the Minecraft community.*
+## Project layout
+
+- `common/` — shared configuration and mixin logic.
+- `fabric/` — Fabric entrypoint and Mod Menu integration.
+
+## License
+
+CC-BY-4.0
