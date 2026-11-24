@@ -1,0 +1,5 @@
+{
+  "text.autoconfig.holdtoattack.title": "Hold To Attack Settings",
+  "text.autoconfig.holdtoattack.option.enabled": "Enabled",
+  "text.autoconfig.holdtoattack.option.requireTarget": "Require Target"
+}
