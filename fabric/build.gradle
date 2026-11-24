@@ -1,20 +1,21 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom-remap' version '1.14-SNAPSHOT'
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 
-    implementation project(":common")
+    implementation project(path: ":common", configuration: "namedElements")
 
-    // ModMenu
-    implementation "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
+    // ModMenu is optional at runtime; compile against its API only.
+    modCompileOnly "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
 }
 
 processResources {
     inputs.property "version", project.version
-
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
